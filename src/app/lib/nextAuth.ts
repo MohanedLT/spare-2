@@ -1,5 +1,6 @@
 import { type AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { pages } from "next/dist/build/templates/app-page";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -15,9 +16,11 @@ export const authOptions: AuthOptions = {
   jwt: {
     // The maximum age of the NextAuth.js issued JWT (default: 30 days)
   },
-  callbacks:{
+  callbacks: {
     // Sign in, session callback
   },
-  secret:process.env.NEXTAUTH_SECRET
-  
+  secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: "/auth/signin", // custom signin page
+  },
 };

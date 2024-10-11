@@ -1,21 +1,12 @@
-import { getServerSession } from "next-auth";
 import Image from "next/image";
-import { authOptions } from "./lib/nextAuth";
-import SigninWithGoogle from "@/components/SigninWithGoogle";
+
+
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {session ? (
-        <div>
-          <h1>Welcom {session.user?.name}</h1>
-          <Image src={session.user?.image as string} alt="user image" width={100} height={100}/>
-          <p>{session.user?.email}</p>
-        </div>
-      ) : (
-        <SigninWithGoogle />
-      )}
+      
+      {/* <ClientComponent /> */}
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
